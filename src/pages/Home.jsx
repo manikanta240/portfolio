@@ -146,8 +146,8 @@ const Home = () => {
         </h2>
 
         <p className="text-lg text-gray-700 max-w-xl">
-          A passionate web developer who builds fast, interactive, and modern web
-          experiences using cutting-edge technologies.
+          A passionate web developer who builds fast, interactive, and modern
+          web experiences using cutting-edge technologies.
         </p>
 
         <div ref={socialIconsWrapper} className="flex gap-6 mt-6">

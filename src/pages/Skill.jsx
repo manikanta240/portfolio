@@ -86,7 +86,7 @@ const skills = [
   },
   {
     id: 7,
-    category: "Backend",
+    category: "problem-solving",
     iconClass: "ri-java-line",
     name: "Java",
     description:
@@ -110,33 +110,26 @@ const skills = [
     projects: "3+ Repositories",
   },
 ];
-
 const additionalSkills = [
   { name: "Express.js", icon: "⚡" },
   { name: "RESTful APIs", icon: "🔌" },
   { name: "Responsive Design", icon: "📱" },
   { name: "UI/UX Design", icon: "🎨" },
   { name: "GSAP Animations", icon: "✨" },
-  { name: "Firebase", icon: "🔥" },
   { name: "MongoDB", icon: "🍃" },
   { name: "Problem Solving", icon: "🧩" },
   { name: "Code Review", icon: "👁️" },
-  { name: "Agile/Scrum", icon: "🔄" },
 ];
-
 const Skill = () => {
   const skillsSection = useRef(null);
   const skillCardRefs = useRef([]);
   const progressBarRefs = useRef([]);
   const [selectedCategory, setSelectedCategory] = useState("All");
-
   const skillCategories = ["All", "Frontend", "Backend", "Tools"];
-
   const getFilteredSkills = () => {
     if (selectedCategory === "All") return skills;
     return skills.filter((skill) => skill.category === selectedCategory);
   };
-
   useGSAP(() => {
     const ctx = gsap.context(() => {
       gsap.from(".skill-header", {
@@ -149,7 +142,6 @@ const Skill = () => {
           start: "top 80%",
         },
       });
-
       gsap.from(".category-btn", {
         scale: 0,
         opacity: 0,
@@ -158,10 +150,9 @@ const Skill = () => {
         ease: "back.out(1.7)",
         scrollTrigger: {
           trigger: ".category-buttons",
-          start: "top 80%",
+          start: "top 85%",
         },
       });
-
       skillCardRefs.current.forEach((card, idx) => {
         if (card) {
           gsap.from(card, {
@@ -178,7 +169,6 @@ const Skill = () => {
           });
         }
       });
-
       progressBarRefs.current.forEach((bar, idx) => {
         if (bar) {
           gsap.from(bar, {
@@ -187,14 +177,13 @@ const Skill = () => {
             ease: "power2.out",
             scrollTrigger: {
               trigger: bar.closest(".skill-card"),
-              start: "top 80%",
+              start: "top 50%",
               toggleActions: "play none none none",
             },
             delay: 0.3 + idx * 0.1,
           });
         }
       });
-
       gsap.from(".skill-icon-wrapper", {
         scale: 0,
         rotation: 0,
@@ -203,34 +192,38 @@ const Skill = () => {
         ease: "back.out(1.7)",
         scrollTrigger: {
           trigger: skillsSection.current,
-          start: "top 70%",
+          start: "top 50%",
         },
       });
-
-      gsap.from(".additional-skill", {
-        y: 30,
-        opacity: 0,
-        duration: 0.6,
-        stagger: 0.05,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: ".additional-skills-section",
-          start: "top 85%",
+      gsap.fromTo(
+        ".additional-skill",
+        {
+          y: 30,
+          opacity: 0,
+          stagger: 0.05,
         },
-      });
+        {
+          y: 0,
+          opacity: 1,
+          duration: 1,
+          stagger: 0.05,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: ".additional-skills-section",
+            start: "top 80%",
+            toggleActions: "play none none none",
+          },
+        },
+      );
     }, skillsSection);
-
     return () => ctx.revert();
   }, [selectedCategory]);
-
   const addSkillCardRef = (element, index) => {
     skillCardRefs.current[index] = element;
   };
-
   const addProgressBarRef = (element, index) => {
     progressBarRefs.current[index] = element;
   };
-
   return (
     <section
       ref={skillsSection}
@@ -241,10 +234,9 @@ const Skill = () => {
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse delay-1000" />
         <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl animate-pulse delay-500" />
       </div>
-
       <div className="max-w-7xl mx-auto relative z-10">
-        <div className="skill-header text-center mb-16">
-          <h1 className="text-6xl md:text-7xl lg:text-8xl font-extrabold mb-6 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent">
+        <div className="skill-header text-center mb-12">
+          <h1 className="text-6 xl md:text-7xl lg:text-8xl font-extrabold mb-6 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent">
             My Skills
           </h1>
           <div className="w-32 h-1 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 mx-auto mb-6" />
@@ -253,13 +245,12 @@ const Skill = () => {
             create exceptional digital experiences
           </p>
         </div>
-
         <div className="category-buttons flex flex-wrap justify-center gap-4 mb-12">
           {skillCategories.map((category) => (
             <button
               key={category}
               onClick={() => setSelectedCategory(category)}
-              className={`category-btn px-6 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-110 ${
+              className={`category-btn w-36 py-3 rounded-full font-semibold flex items-center justify-center transition-all duration-300 transform hover:scale-110 ${
                 selectedCategory === category
                   ? "bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-lg shadow-cyan-500/50"
                   : "bg-gray-800/50 text-gray-300 hover:bg-gray-700/50 backdrop-blur-sm"
@@ -269,7 +260,6 @@ const Skill = () => {
             </button>
           ))}
         </div>
-
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
           {getFilteredSkills().map((skill, idx) => (
             <div
@@ -280,7 +270,6 @@ const Skill = () => {
               <div
                 className={`absolute inset-0 bg-gradient-to-br ${skill.color} opacity-0 group-hover:opacity-10 rounded-2xl transition-opacity duration-500`}
               />
-
               <div className="relative z-10">
                 <div className="flex items-start justify-between mb-6">
                   <div className="flex items-center gap-4">
@@ -302,11 +291,9 @@ const Skill = () => {
                     </div>
                   </div>
                 </div>
-
                 <p className="text-gray-300 leading-relaxed mb-6 text-base md:text-lg">
                   {skill.description}
                 </p>
-
                 <div className="mb-6">
                   <div className="flex items-center justify-between mb-2">
                     <span className="text-sm font-semibold text-gray-400">
@@ -324,7 +311,6 @@ const Skill = () => {
                     />
                   </div>
                 </div>
-
                 <div className="flex items-center gap-6 pt-4 border-t border-gray-700/50">
                   <div className="flex items-center gap-2">
                     <i className="ri-time-line text-cyan-400 text-xl" />
@@ -338,14 +324,12 @@ const Skill = () => {
                   </div>
                 </div>
               </div>
-
               <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent transform -skew-x-12 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
               </div>
             </div>
           ))}
         </div>
-
         <div className="additional-skills-section">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
@@ -356,7 +340,6 @@ const Skill = () => {
               methodologies
             </p>
           </div>
-
           <div className="flex flex-wrap justify-center gap-4">
             {additionalSkills.map((tech, idx) => (
               <div
@@ -374,7 +357,6 @@ const Skill = () => {
             ))}
           </div>
         </div>
-
         <div className="mt-20 text-center">
           <div className="inline-block bg-gradient-to-r from-cyan-500/10 to-blue-500/10 backdrop-blur-sm rounded-2xl p-8 border border-cyan-500/30">
             <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
