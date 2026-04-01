@@ -16,7 +16,7 @@ const Projects = () => {
       id: 1,
       title: 'E-Commerce Platform',
       description:
-        "A hands-on full-stack e-commerce application with user authentication, shopping cart, and payment integration. Built with React, Node.js, and MongoDB.",
+        'A hands-on full-stack e-commerce application with user authentication, shopping cart, and payment integration. Built with React, Node.js, and MongoDB.',
       technologies: ['React', 'Node.js', 'MongoDB', 'Express', 'Stripe'],
       image: '🛒',
       github: 'https://github.com/manikanta240/E-Commerce.git',
@@ -53,7 +53,7 @@ const Projects = () => {
       github: 'https://github.com/manikanta240/Weather-App.git',
       live: 'https://example.com',
       backend: null,
-      status: 'in-progress'
+      status: 'completed'
     },
     {
       id: 4,
@@ -212,7 +212,11 @@ const Projects = () => {
                 </div>
 
                 <div
-                  className={`grid gap-2 ${project.backend ? 'grid-cols-1 sm:grid-cols-3' : 'grid-cols-2'}`}
+                  className={`grid gap-2 ${
+                    project.backend
+                      ? 'grid-cols-1 sm:grid-cols-3'
+                      : 'grid-cols-2'
+                  }`}
                 >
                   <a
                     href={project.github}
@@ -239,7 +243,9 @@ const Projects = () => {
                     href={project.live}
                     target='_blank'
                     rel='noopener noreferrer'
-                    className={`px-3 py-2.5 bg-gradient-to-r from-[#5D866C] to-fuchsia-700 text-white rounded-xl text-center text-sm font-semibold hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2 ${project.backend ? '' : 'sm:col-span-1'}`}
+                    className={`px-3 py-2.5 bg-gradient-to-r from-[#5D866C] to-fuchsia-700 text-white rounded-xl text-center text-sm font-semibold hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2 ${
+                      project.backend ? '' : 'sm:col-span-1'
+                    }`}
                   >
                     <i className='ri-external-link-line text-lg' />
                     Live
