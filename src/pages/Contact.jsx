@@ -8,6 +8,7 @@ gsap.registerPlugin(ScrollTrigger);
 const Contact = () => {
   const sectionRef = useRef(null);
   const contactForm = useRef(null);
+  const headerRef = useRef(null);
   const [formState, setFormState] = useState({
     name: "",
     email: "",
@@ -18,6 +19,33 @@ const Contact = () => {
 
   useGSAP(() => {
     const ctx = gsap.context(() => {
+      if (headerRef.current) {
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: headerRef.current,
+            start: "top 80%",
+            toggleActions: "play none none none",
+          },
+        });
+        tl.from(headerRef.current.querySelector(".contact-title"), {
+          y: 48,
+          opacity: 0,
+          filter: "blur(8px)",
+          duration: 0.75,
+          ease: "power4.out",
+        })
+          .from(
+            headerRef.current.querySelector(".contact-rule"),
+            { scaleX: 0, duration: 0.45, ease: "power2.out" },
+            "-=0.4"
+          )
+          .from(
+            headerRef.current.querySelector(".contact-sub"),
+            { y: 24, opacity: 0, duration: 0.6 },
+            "-=0.3"
+          );
+      }
+
       if (contactForm.current?.children) {
         gsap.from(contactForm.current.children, {
           y: 50,
@@ -73,13 +101,13 @@ const Contact = () => {
       icon: "ri-mail-line",
       label: "Email",
       value: "nagamanikantaseelam@gmail.com",
-      link: "mailto:your.email@example.com",
+      link: "mailto:nagamanikantaseelam@gmail.com",
     },
     {
       icon: "ri-phone-line",
       label: "Phone",
       value: "6305460008",
-      link: "tel:+15551234567",
+      link: "tel:+916305460008",
     },
     {
       icon: "ri-map-pin-line",
@@ -123,14 +151,14 @@ const Contact = () => {
       className="min-h-screen w-full py-20 px-6 md:px-10 lg:px-16 bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50"
     >
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
-          <h1 className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-[#5D866C] to-fuchsia-700 bg-clip-text text-transparent">
+        <div ref={headerRef} className="text-center mb-16">
+          <h1 className="contact-title text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-[#5D866C] to-fuchsia-700 bg-clip-text text-transparent">
             Get In Touch
           </h1>
-          <div className="w-24 h-1 bg-gradient-to-r from-[#5D866C] to-fuchsia-700 mx-auto mb-6" />
-          <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-            Have a project in mind or want to collaborate? I'd love to hear from
-            you. Send me a message and I'll respond as soon as possible.
+          <div className="contact-rule w-24 h-1 bg-gradient-to-r from-[#5D866C] to-fuchsia-700 mx-auto mb-6 origin-center rounded-full" />
+          <p className="contact-sub text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
+            Have a project in mind or want to collaborate? I&apos;d love to hear
+            from you — Seelam Naga Manikanta, full stack web developer.
           </p>
         </div>
 

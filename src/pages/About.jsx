@@ -8,9 +8,37 @@ gsap.registerPlugin(ScrollTrigger);
 const About = () => {
   const pageContainer = useRef(null);
   const sectionsArray = useRef([]);
+  const heroTitleRef = useRef(null);
 
   useGSAP(() => {
     const ctx = gsap.context(() => {
+      if (heroTitleRef.current) {
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: heroTitleRef.current,
+            start: "top 82%",
+            toggleActions: "play none none none",
+          },
+        });
+        tl.from(heroTitleRef.current.querySelector(".about-heading"), {
+          y: 56,
+          opacity: 0,
+          filter: "blur(12px)",
+          duration: 0.85,
+          ease: "power4.out",
+        })
+          .from(
+            heroTitleRef.current.querySelector(".about-rule"),
+            { scaleX: 0, opacity: 0, duration: 0.5, ease: "power2.out" },
+            "-=0.45"
+          )
+          .from(
+            heroTitleRef.current.querySelector(".about-lead"),
+            { y: 28, opacity: 0, duration: 0.65, ease: "power3.out" },
+            "-=0.35"
+          );
+      }
+
       sectionsArray.current.forEach((section) => {
         if (section) {
           gsap.from(section, {
@@ -37,10 +65,11 @@ const About = () => {
 
   const workExperience = [
     {
-      title: "Frontend Developer",
+      title: "Full Stack Web Developer",
+      company: "Freelance & projects",
       period: "2023 - Present",
       description:
-        "Building responsive web applications using React, JavaScript, and modern CSS frameworks. Collaborating with clients to deliver high-quality user experiences.",
+        "Building responsive frontends and robust backends with React, Node.js, and REST APIs. Shipping full features end to end with clean UX and dependable server logic.",
     },
     {
       title: "Web Development Student",
@@ -74,19 +103,22 @@ const About = () => {
       className="min-h-screen w-full py-20 px-6 md:px-10 lg:px-16"
     >
       <div className="max-w-6xl mx-auto">
-        <div ref={(el) => addSectionRef(el, 0)} className="text-center mb-16">
-          <h1 className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-[#5D866C] to-fuchsia-700 bg-clip-text text-transparent">
+        <div
+          ref={heroTitleRef}
+          className="text-center mb-16"
+        >
+          <h1 className="about-heading text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-[#5D866C] to-fuchsia-700 bg-clip-text text-transparent">
             About Me
           </h1>
-          <div className="w-24 h-1 bg-gradient-to-r from-[#5D866C] to-fuchsia-700 mx-auto mb-6" />
-          <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-            Passionate web developer dedicated to creating exceptional digital
-            experiences
+          <div className="about-rule w-24 h-1 bg-gradient-to-r from-[#5D866C] to-fuchsia-700 mx-auto mb-6 origin-center rounded-full" />
+          <p className="about-lead text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
+            Seelam Naga Manikanta — full stack web developer focused on
+            exceptional digital experiences from database to UI
           </p>
         </div>
 
         <div
-          ref={(el) => addSectionRef(el, 1)}
+          ref={(el) => addSectionRef(el, 0)}
           className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 md:p-12 mb-12 shadow-xl"
         >
           <h2 className="text-3xl font-bold mb-6 text-[#5D866C]">My Story</h2>
@@ -114,7 +146,7 @@ const About = () => {
           </div>
         </div>
 
-        <div ref={(el) => addSectionRef(el, 2)} className="mb-12">
+        <div ref={(el) => addSectionRef(el, 1)} className="mb-12">
           <h2 className="text-4xl font-bold mb-8 text-center text-[#5D866C]">
             Experience
           </h2>
@@ -145,7 +177,7 @@ const About = () => {
           </div>
         </div>
 
-        <div ref={(el) => addSectionRef(el, 3)} className="mb-12">
+        <div ref={(el) => addSectionRef(el, 2)} className="mb-12">
           <h2 className="text-4xl font-bold mb-8 text-center text-[#5D866C]">
             Education
           </h2>
@@ -177,7 +209,7 @@ const About = () => {
         </div>
 
         <div
-          ref={(el) => addSectionRef(el, 4)}
+          ref={(el) => addSectionRef(el, 3)}
           className="bg-gradient-to-r from-[#5D866C] to-fuchsia-700 rounded-2xl p-8 md:p-12 text-white"
         >
           <h2 className="text-4xl font-bold mb-8 text-center">

@@ -1,8 +1,31 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Link } from "react-router-dom";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const footerRef = useRef(null);
+
+  useGSAP(() => {
+    if (!footerRef.current) return;
+    const blocks = footerRef.current.querySelectorAll(".footer-reveal");
+    gsap.from(blocks, {
+      y: 36,
+      opacity: 0,
+      duration: 0.7,
+      stagger: 0.12,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: footerRef.current,
+        start: "top 92%",
+        toggleActions: "play none none none",
+      },
+    });
+  }, []);
 
   const quickLinks = [
     { to: "/", label: "Home" },
@@ -32,17 +55,21 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-gradient-to-r from-[#5D866C] to-fuchsia-700 text-white py-12 px-6 md:px-10 lg:px-16">
+    <footer
+      ref={footerRef}
+      className="bg-gradient-to-r from-[#5D866C] to-fuchsia-700 text-white py-12 px-6 md:px-10 lg:px-16"
+    >
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-          <div>
-            <h3 className="text-2xl font-bold mb-4">Portfolio</h3>
-            <p className="text-white/80 leading-relaxed">
-              A passionate web developer creating exceptional digital experiences.
+          <div className="footer-reveal">
+            <h3 className="text-2xl font-bold mb-4">Seelam Naga Manikanta</h3>
+            <p className="text-white/85 leading-relaxed">
+              Full stack web developer building polished interfaces, APIs, and
+              reliable data layers — from idea to production.
             </p>
           </div>
 
-          <div>
+          <div className="footer-reveal">
             <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-2">
               {quickLinks.map((link) => (
@@ -58,7 +85,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          <div>
+          <div className="footer-reveal">
             <h4 className="text-lg font-semibold mb-4">Connect</h4>
             <div className="flex gap-4">
               {socialLinks.map((social, index) => (
@@ -77,11 +104,11 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-white/20 pt-8 text-center">
-          <p className="text-white/80">
+        <div className="footer-reveal border-t border-white/20 pt-8 text-center">
+          <p className="text-white/85">
             © {currentYear} Seelam Naga Manikanta. All rights reserved.
           </p>
-          <p className="text-white/60 text-sm mt-2">
+          <p className="text-white/65 text-sm mt-2">
             Built with React, GSAP, and Tailwind CSS
           </p>
         </div>
