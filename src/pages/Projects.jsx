@@ -45,13 +45,13 @@ const Projects = () => {
 
     {
       id: 3,
-      title: 'Weather Dashboard',
+      title: 'Basic Weather Dashboard',
       description:
         'A responsive weather application that displays current weather conditions and forecasts using a weather API with a clean, focused UI.',
       technologies: ['React', 'API Integration', 'CSS3', 'JavaScript'],
       image: '🌤️',
       github: 'https://github.com/manikanta240/Weather-App.git',
-      live: 'https://example.com',
+      live: 'https://weather-app-six-phi-90.vercel.app/',
       status: 'completed'
     },
     {
