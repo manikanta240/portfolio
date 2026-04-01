@@ -39,8 +39,7 @@ const Projects = () => {
       technologies: ['React', 'GSAP', 'Tailwind CSS', 'React Router'],
       image: '💼',
       github: 'https://github.com/manikanta240/portfolio.git',
-      live: 'https://example.com',
-      backend: null,
+      live: 'https://portfolio-coral-eta-9e4g0qormb.vercel.app/',
       status: 'completed'
     },
 
@@ -53,7 +52,6 @@ const Projects = () => {
       image: '🌤️',
       github: 'https://github.com/manikanta240/Weather-App.git',
       live: 'https://example.com',
-      backend: null,
       status: 'completed'
     },
     {
@@ -64,8 +62,6 @@ const Projects = () => {
       technologies: ['React', 'Node.js', 'MongoDB', 'Express', 'Stripe'],
       image: '🛒',
       github: 'https://github.com/manikanta240/E-Commerce.git',
-      live: 'https://example.com',
-      backend: 'https://github.com/manikanta240/E-Commerce',
       status: 'completed'
     }
   ]
