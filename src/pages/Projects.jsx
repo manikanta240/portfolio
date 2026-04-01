@@ -14,18 +14,6 @@ const Projects = () => {
   const myProjects = [
     {
       id: 1,
-      title: 'E-Commerce Platform',
-      description:
-        'A hands-on full-stack e-commerce application with user authentication, shopping cart, and payment integration. Built with React, Node.js, and MongoDB.',
-      technologies: ['React', 'Node.js', 'MongoDB', 'Express', 'Stripe'],
-      image: '🛒',
-      github: 'https://github.com/manikanta240/E-Commerce.git',
-      live: 'https://example.com',
-      backend: 'https://github.com/manikanta240/E-Commerce',
-      status: 'completed'
-    },
-    {
-      id: 2,
       title: 'OpenATS+',
       description:
         'An AI-ready Applicant Tracking System that helps developers optimize resumes for job applications. Upload resumes, track applications, and analyze resume fit with job descriptions through a modern dashboard.',
@@ -39,10 +27,23 @@ const Projects = () => {
       ],
       image: '📄',
       github: 'https://github.com/manikanta240/ATS.git',
-      live: 'https://ats-f3qj.onrender.com',
+      live: 'https://ats-9zjw.onrender.com/login',
       backend: 'https://github.com/manikanta240/ATS',
       status: 'completed'
     },
+    {
+      id: 2,
+      title: 'Portfolio Website',
+      description:
+        'A modern, responsive portfolio showcasing projects and skills with GSAP motion, scroll storytelling, and a cohesive visual system.',
+      technologies: ['React', 'GSAP', 'Tailwind CSS', 'React Router'],
+      image: '💼',
+      github: 'https://github.com/manikanta240/portfolio.git',
+      live: 'https://example.com',
+      backend: null,
+      status: 'completed'
+    },
+
     {
       id: 3,
       title: 'Weather Dashboard',
@@ -57,14 +58,14 @@ const Projects = () => {
     },
     {
       id: 4,
-      title: 'Portfolio Website',
+      title: 'E-Commerce Platform',
       description:
-        'A modern, responsive portfolio showcasing projects and skills with GSAP motion, scroll storytelling, and a cohesive visual system.',
-      technologies: ['React', 'GSAP', 'Tailwind CSS', 'React Router'],
-      image: '💼',
-      github: 'https://github.com/manikanta240/portfolio.git',
+        'A hands-on full-stack e-commerce application with user authentication, shopping cart, and payment integration. Built with React, Node.js, and MongoDB.',
+      technologies: ['React', 'Node.js', 'MongoDB', 'Express', 'Stripe'],
+      image: '🛒',
+      github: 'https://github.com/manikanta240/E-Commerce.git',
       live: 'https://example.com',
-      backend: null,
+      backend: 'https://github.com/manikanta240/E-Commerce',
       status: 'completed'
     }
   ]
