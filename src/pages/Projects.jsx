@@ -33,18 +33,37 @@ const Projects = () => {
     },
     {
       id: 2,
+      title: 'Hospital Management System',
+      description:
+        'A full-stack hospital management application that streamlines patient registration, appointment booking, doctor management, and medical record handling through a secure and user-friendly interface.',
+      technologies: [
+        'React',
+        'Node.js',
+        'Express.js',
+        'MongoDB',
+        'JWT',
+        'Tailwind CSS'
+      ],
+      image: '🏥',
+      github: 'https://github.com/your-username/hospital-management-system.git',
+      live: 'bundle',
+      status: 'completed'
+    },
+
+    {
+      id: 3,
       title: 'Portfolio Website',
       description:
         'A modern, responsive portfolio showcasing projects and skills with GSAP motion, scroll storytelling, and a cohesive visual system.',
       technologies: ['React', 'GSAP', 'Tailwind CSS', 'React Router'],
       image: '💼',
       github: 'https://github.com/manikanta240/portfolio.git',
-      live: 'https://portfolio-coral-eta-9e4g0qormb.vercel.app/',
+      live: 'bundle',
       status: 'completed'
     },
 
     {
-      id: 3,
+      id: 4,
       title: 'Basic Weather Dashboard',
       description:
         'A responsive weather application that displays current weather conditions and forecasts using a weather API with a clean, focused UI.',
@@ -54,12 +73,13 @@ const Projects = () => {
       live: 'https://weather-app-six-phi-90.vercel.app/',
       status: 'completed'
     },
+
     {
-      id: 4,
+      id: 5,
       title: 'E-Commerce Platform',
       description:
-        'A hands-on full-stack e-commerce application with user authentication, shopping cart, and payment integration. Built with React, Node.js, and MongoDB.',
-      technologies: ['React', 'Node.js', 'MongoDB', 'Express', 'Stripe'],
+        'A hands-on backend e-commerce application with user authentication, shopping cart. Built with  Node.js, and MongoDB.',
+      technologies: ['Node.js', 'MongoDB', 'Express', 'Stripe'],
       image: '🛒',
       github: 'https://github.com/manikanta240/E-Commerce.git',
       status: 'completed'
