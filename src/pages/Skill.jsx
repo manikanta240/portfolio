@@ -37,6 +37,20 @@ const skills = [
   },
   {
     id: 3,
+    category: 'Languages',
+    iconClass: 'ri-database-2-line',
+    name: 'SQL',
+    description:
+      'Database design, complex queries, joins, indexing, and CRUD operations.',
+    proficiency: 75,
+    accent: 'from-blue-500 to-cyan-700',
+    bar: 'bg-gradient-to-r from-blue-500 to-cyan-600',
+    iconBg: 'bg-blue-600',
+    years: '2+ Years',
+    projects: '5+ Projects'
+  },
+  {
+    id: 4,
     category: 'Frontend',
     iconClass: 'ri-tailwind-css-line',
     name: 'Tailwind CSS',
@@ -50,7 +64,7 @@ const skills = [
     projects: '5+ Projects'
   },
   {
-    id: 4,
+    id: 5,
     category: 'Frontend',
     iconClass: 'ri-html5-line',
     name: 'HTML5',
@@ -63,7 +77,7 @@ const skills = [
     projects: '30+ Projects'
   },
   {
-    id: 5,
+    id: 6,
     category: 'Frontend',
     iconClass: 'ri-css3-fill',
     name: 'CSS3',
@@ -76,7 +90,7 @@ const skills = [
     projects: '30+ Projects'
   },
   {
-    id: 6,
+    id: 7,
     category: 'Backend',
     iconClass: 'ri-nodejs-line',
     name: 'Node.js',
@@ -90,7 +104,7 @@ const skills = [
     projects: '3+ Projects'
   },
   {
-    id: 7,
+    id: 8,
     category: 'Languages',
     iconClass: 'ri-java-line',
     name: 'Java',
@@ -104,7 +118,7 @@ const skills = [
     projects: '5+ Projects'
   },
   {
-    id: 8,
+    id: 9,
     category: 'Tools',
     iconClass: 'ri-github-line',
     name: 'Git & GitHub',
@@ -118,7 +132,7 @@ const skills = [
     projects: '3+ Repos'
   },
   {
-    id: 9,
+    id: 10,
     category: 'Tools',
     iconClass: 'ri-send-plane-2-line',
     name: 'Postman',

@@ -47,7 +47,7 @@ const Projects = () => {
       image: '🏥',
       github: 'https://github.com/your-username/hospital-management-system.git',
       live: 'bundle',
-      status: 'completed'
+      status: 'Ready To Deploy'
     },
 
     {
