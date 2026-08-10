@@ -58,7 +58,7 @@ const Projects = () => {
       technologies: ['React', 'GSAP', 'Tailwind CSS', 'React Router'],
       image: '💼',
       github: 'https://github.com/manikanta240/portfolio.git',
-      live: 'bundle',
+      live: 'https://portfolio-coral-eta-9e4g0qormb.vercel.app/',
       status: 'completed'
     },
 
